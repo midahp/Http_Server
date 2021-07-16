@@ -14,7 +14,7 @@ use Horde\Http\Server\ResponseWriterWeb;
 use Horde\Http\Server\Runner;
 use Horde\Http\StreamFactory;
 
-// Assuming this is the root 
+// Assuming this is the root
 $autoloadFiles = [
     // library is root and installed
     dirname(__FILE__, 3) . '/vendor/autoload.php',
@@ -22,8 +22,8 @@ $autoloadFiles = [
     dirname(__FILE__, 5) . '/autoload.php',
 ];
 foreach ($autoloadFiles as $file) {
-    if (file_exists($autoloadFile)) {
-        require_once $autoloadFile;
+    if (file_exists($file)) {
+        require_once $file;
         break;
     }
 }
