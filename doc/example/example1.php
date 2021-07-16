@@ -1,7 +1,7 @@
 <?php
 /**
  * Example 1:
- * 
+ *
  * Setting up a request and neither middleware nor a payload handler
  * The Request will be handled by the RampageRequestHandler's builtin answer.
  */
@@ -33,7 +33,7 @@ $streamFactory = new StreamFactory();
 $uriFactory = new UriFactory();
 $responseFactory = new ResponseFactory();
 
-// Build the request from server variables. 
+// Build the request from server variables.
 // The RequestBuilder could easily be autowired by a DI container.
 $requestBuilder = new RequestBuilder($requestFactory, $streamFactory, $uriFactory);
 $request = $requestBuilder->withGlobalVariables()->build();
