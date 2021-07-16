@@ -33,7 +33,7 @@ class RequestBuilder
     /**
      * Create a new server request populated with global state
      */
-    public function withGlobalVariables()
+    public function withGlobalVariables(): self
     {
         $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
 
@@ -75,11 +75,12 @@ class RequestBuilder
         return $this;
     }
 
-    public function withHeaders(array $headers)
+    public function withHeaders(array $headers): self
     {
         foreach ($headers as $header => $value) {
             $this->request = $this->request->withHeader($header, $value);
         }
+        return $this;
     }
 
     public function build(): ServerRequestInterface
