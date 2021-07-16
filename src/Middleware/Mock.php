@@ -9,9 +9,9 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 /**
  * A Mock Middleware
- * 
+ *
  * This middleware will unconditionally return a prefabricated a response
- * 
+ *
  * Returns a preset response
  */
 class Mock implements MiddlewareInterface
@@ -25,12 +25,12 @@ class Mock implements MiddlewareInterface
 
     /**
      * Process the incoming request
-     * 
+     *
      * Produce an own response object, do not delegate to handler
-     * 
+     *
      * @param ServerRequestInterface $request The request
      * @param RequestHandlerInterface $handler The controlling request handler
-     * 
+     *
      * @return ResponseInterface
      */
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface

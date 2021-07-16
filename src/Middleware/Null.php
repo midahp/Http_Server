@@ -8,9 +8,9 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 /**
  * A Null Middleware
- * 
+ *
  * This middleware does exactly nothing and returns control to the handler
- * 
+ *
  * This is copy/paste fare
  */
 class Base implements MiddlewareInterface

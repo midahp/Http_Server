@@ -9,8 +9,8 @@ use Psr\Http\Message\StreamFactoryInterface;
 
 /**
  * Default Handler Trait.
- * 
- * 
+ *
+ *
  */
 trait DefaultHandlerTrait {
     protected ResponseFactoryInterface $responseFactory;
@@ -24,13 +24,13 @@ trait DefaultHandlerTrait {
 
     /**
      * Handle a request
-     * 
+     *
      * Each middleware will either create a response or
      * return control to the handler.
-     * 
+     *
      * If the middlewares created no response,
      * the payload handler will.
-     * 
+     *
      * Finally the we will return a response ourselves.
      */
     public function handle(RequestInterface $request): ResponseInterface
