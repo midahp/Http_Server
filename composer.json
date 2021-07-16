@@ -1,23 +1,17 @@
 {
-    "minimum-stability": "dev",
-    "name": "horde/controller",
-    "description": "Controller library",
+    "name": "horde/http_server",
+    "description": "HTTP Request Handling Library adhering to PSR-15 standard. This evolved out of horde/controller.",
     "type": "library",
     "homepage": "https://www.horde.org/libraries/Horde_Controller",
     "license": "BSD-2-Clause",
     "authors": [
         {
-            "name": "Mike Naberezny",
-            "email": "mike@naberezny.com",
-            "role": "lead"
-        },
-        {
-            "name": "Chuck Hagenbuch",
-            "email": "chuck@horde.org",
+            "name": "Ralf Lang",
+            "email": "lang@b1-systems.de",
             "role": "lead"
         }
     ],
-    "time": "2021-03-13",
+    "time": "2021-07-16",
     "repositories": [
         {
             "type": "composer",
@@ -25,21 +19,21 @@
         }
     ],
     "require": {
-        "php": "^7",
+        "php": "^7 || ^8",
+        "psr/http-server-middleware": "^1",
+        "psr/http-server-handler": "^1",
         "horde/exception": "^3 || dev-FRAMEWORK_6_0",
-        "horde/injector": "^3 || dev-FRAMEWORK_6_0",
-        "horde/log": "^3 || dev-FRAMEWORK_6_0",
-        "horde/support": "^3 || dev-FRAMEWORK_6_0",
-        "horde/util": "^3 || dev-FRAMEWORK_6_0"
+        "horde/http": "^3 || dev-FRAMEWORK_6_0"
     },
+    "require-dev": {},
     "suggest": {
         "horde/test": "^3 || dev-FRAMEWORK_6_0",
         "ext-mbstring": "*",
         "ext-zlib": "*"
     },
     "autoload": {
-        "psr-0": {
-            "Horde_Controller": "lib/"
+        "psr-4": {
+            "Horde\\Http\\Server\\": "src/"
         }
     }
 }

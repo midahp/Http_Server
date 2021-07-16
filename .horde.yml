@@ -1,27 +1,21 @@
 ---
-id: Controller
-name: Controller
-full: Controller library
-description: The controller part of an MVC system for Horde.
+id: Http_Server
+name: Http_Server
+full: HTTP Request Handling Library adhering to PSR-15 standard. This evolved out of horde/controller.
+description: A PSR-15 compatible Server/RequestHandler implementation with limited ties to the Horde Framework.
 list: dev
 type: library
 homepage: https://www.horde.org/libraries/Horde_Controller
 authors:
   -
-    name: Mike Naberezny
-    user: mnaberez
-    email: mike@naberezny.com
-    active: false
-    role: lead
-  -
-    name: Chuck Hagenbuch
-    user: chuck
-    email: chuck@horde.org
-    active: false
+    name: Ralf Lang
+    user: rlang
+    email: lang@b1-systems.de
+    active: true
     role: lead
 version:
-  release: 3.0.0alpha4
-  api: 3.0.0alpha1
+  release: 1.0.0alpha1
+  api: 1.0.0alpha1
 state:
   release: alpha
   api: alpha
@@ -30,13 +24,13 @@ license:
   uri: http://www.horde.org/licenses/bsd
 dependencies:
   required:
-    php: ^7
+    php: ^7 || ^8
     composer:
+      psr/http-server-middleware: ^1
+      psr/http-server-handler: ^1
       horde/exception: ^3
-      horde/injector: ^3
-      horde/log: ^3
-      horde/support: ^3
-      horde/util: ^3
+      ## is a psr-7 implementation
+      horde/http: ^3
   optional:
     composer:
       horde/test: ^3
