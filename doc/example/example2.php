@@ -44,3 +44,4 @@ $middlewares = [
 ];
 $handler = new RampageRequestHandler($responseFactory, $streamFactory, $middlewares);
 $runner = new Runner($handler, new ResponseWriterWeb());
+$runner->run($request);

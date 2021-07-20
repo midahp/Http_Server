@@ -40,3 +40,4 @@ $request = $requestBuilder->withGlobalVariables()->build();
 
 $handler = new RampageRequestHandler($responseFactory, $streamFactory);
 $runner = new Runner($handler, new ResponseWriterWeb());
+$runner->run($request);
