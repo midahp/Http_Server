@@ -7,7 +7,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 /**
  * HTTP Server Runner
- * 
+ *
  * Run a Request through the RequestHandler (and possibly a Middleware stack)
  * and output through the ResponseWriter
  */
