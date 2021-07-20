@@ -27,6 +27,14 @@ class ResponseWriterWeb implements ResponseWriterInterface
 {
     public function writeResponse(ResponseInterface $response)
     {
+        header(
+            sprintf(
+                'HTTP/%s %d %s',
+                $response->getProtocolVersion(),
+                $response->getStatusCode(),
+                $response->getReasonPhrase()
+            )
+        );
         foreach ($response->getHeaders() as $key => $value) {
             header("$key: $value");
         }
