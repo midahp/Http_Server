@@ -36,7 +36,7 @@ class ResponseWriterWeb implements ResponseWriterInterface
             )
         );
         foreach ($response->getHeaders() as $key => $value) {
-            header("$key: $value");
+            header($key . ': ' . $response->getHeaderLine($key));
         }
         $body = $response->getBody();
         if (is_resource($body)) {
