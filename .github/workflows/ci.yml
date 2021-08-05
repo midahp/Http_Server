@@ -2,7 +2,7 @@
 
 name: CI
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
@@ -27,7 +27,7 @@ jobs:
     strategy:
       matrix:
         operating-system: ['ubuntu-20.04']
-        php-versions: ['7.4']
+        php-versions: ['7.4', '8.0']
         phpunit-versions: ['latest', '9.5', '9.0']
     steps:
     - name: Setup github ssh key
@@ -48,8 +48,8 @@ jobs:
     - name: Install horde/test dependency and other dependencies
       run: |
         ## For unclear reasons, github action fails randomly if we do not install before we require.
+        COMPOSER_ROOT_VERSION=dev-FRAMEWORK_6_0 composer config minimum-stability dev
         COMPOSER_ROOT_VERSION=dev-FRAMEWORK_6_0 composer install
         COMPOSER_ROOT_VERSION=dev-FRAMEWORK_6_0 composer require --dev horde/test dev-FRAMEWORK_6_0 horde/log dev-FRAMEWORK_6_0
     - name: run phpunit
-      run: phpunit --bootstrap test/Horde/Http/Server/bootstrap.php test/Horde/Http/Server/
-
+      run: phpunit --bootstrap test/Horde/Http/Server/bootstrap.php
