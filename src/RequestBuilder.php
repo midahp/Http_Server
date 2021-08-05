@@ -8,7 +8,7 @@ use Psr\Http\Message\UriFactoryInterface;
 
 /**
  * RequestBuilder applies global state or other resources to a ServerRequest
- * 
+ *
  * Builder uses a fluent interface returning itself.
  * To return the produced request, run ->build()
  */
