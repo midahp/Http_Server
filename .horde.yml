@@ -32,8 +32,9 @@ dependencies:
       ## is a psr-7 implementation
       horde/http: ^3
   optional:
-    composer:
-      horde/test: ^3
     ext:
       mbstring: '*'
       zlib: '*'
+  dev:
+    composer:
+      horde/test: ^3
