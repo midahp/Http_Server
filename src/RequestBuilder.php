@@ -51,7 +51,7 @@ class RequestBuilder
         // Always set it, the Uri object will strip it if default
         $port = $_SERVER['SERVER_PORT'] ?? '';
         $path = $_SERVER['REQUEST_URI'] ?? '';
-
+        $path = strtok($path, '?');
         $uriString = sprintf("%s://%s", $scheme, $host);
 
         $uri = $this->uriFactory->createUri($uriString)
