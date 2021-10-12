@@ -1,8 +1,12 @@
 ---
 id: Http_Server
 name: Http_Server
-full: HTTP Request Handling Library adhering to PSR-15 standard. This evolved out of horde/controller.
-description: A PSR-15 compatible Server/RequestHandler implementation with limited ties to the Horde Framework.
+full: >-
+  HTTP Request Handling Library adhering to PSR-15 standard. This evolved out of
+  horde/controller.
+description: >-
+  A PSR-15 compatible Server/RequestHandler implementation with limited ties to
+  the Horde Framework.
 list: dev
 type: library
 homepage: https://www.horde.org/libraries/Horde_Controller
@@ -29,7 +33,6 @@ dependencies:
       psr/http-server-middleware: ^1
       psr/http-server-handler: ^1
       horde/exception: ^3
-      ## is a psr-7 implementation
       horde/http: ^3
   optional:
     ext:
