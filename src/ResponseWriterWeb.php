@@ -25,7 +25,7 @@ use Psr\Http\Message\ResponseInterface;
  */
 class ResponseWriterWeb implements ResponseWriterInterface
 {
-    public function writeResponse(ResponseInterface $response)
+    public function writeResponse(ResponseInterface $response): void
     {
         header(
             sprintf(
@@ -39,10 +39,8 @@ class ResponseWriterWeb implements ResponseWriterInterface
             header($key . ': ' . $response->getHeaderLine($key));
         }
         $body = $response->getBody();
-        if (is_resource($body)) {
-            stream_copy_to_stream($body, fopen('php://output', 'a'));
-        } else {
-            echo $body;
-        }
+        // For now, disable outputting the stream via stream copying
+        // We would need to implement a stream wrapper first
+        echo $body;
     }
 }

@@ -63,7 +63,7 @@ class Gzip implements MiddlewareInterface
      * multi-byte chars as single bytes so we need to treat the string like its
      * 8-bit encoded to get an accurate byte count.
      */
-    protected function _byteCount($string)
+    protected function _byteCount(string $string): int
     {
         if (ini_get('mbstring.func_overload') > 0) {
             return mb_strlen($string, '8bit');

@@ -22,7 +22,7 @@ class Runner
         $this->responseWriter = $responseWriter;
     }
 
-    public function run(ServerRequestInterface $request)
+    public function run(ServerRequestInterface $request): void
     {
         $response = $this->handler->handle($request);
         $this->responseWriter->writeResponse($response);

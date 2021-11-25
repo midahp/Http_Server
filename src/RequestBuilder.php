@@ -45,6 +45,9 @@ class RequestBuilder
             } else {
                 $scheme = 'https';
             }
+        } else {
+            // Default to https
+            $scheme = 'https';
         }
         $host = $_SERVER['HTTP_HOST'] ?? $_SERVER['SERVER_NAME'];
         $queryString = $_SERVER['QUERY_STRING'] ?? '';
@@ -75,6 +78,12 @@ class RequestBuilder
         return $this;
     }
 
+    /**
+     * Add headers from list
+     *
+     * @param mixed[] $headers
+     * @return self
+     */
     public function withHeaders(array $headers): self
     {
         foreach ($headers as $header => $value) {

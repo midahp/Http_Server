@@ -3,7 +3,7 @@ namespace Horde\Http\Server;
 
 use Psr\Http\Server\RequestHandlerInterface;
 use Psr\Http\Server\MiddlewareInterface;
-use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\StreamFactoryInterface;
@@ -42,6 +42,14 @@ class RampageRequestHandler implements RequestHandlerInterface
 
     private ?RequestHandlerInterface $payloadHandler;
 
+    /**
+     * Constructor
+     *
+     * @param ResponseFactoryInterface $responseFactory
+     * @param StreamFactoryInterface $streamFactory
+     * @param MiddlewareInterface[] $middlewares
+     * @param RequestHandlerInterface|null $payloadHandler
+     */
     public function __construct(
         ResponseFactoryInterface $responseFactory,
         StreamFactoryInterface $streamFactory,
@@ -60,7 +68,7 @@ class RampageRequestHandler implements RequestHandlerInterface
     /**
      * Add another middleware to the queue just before the payload handler
      */
-    public function addMiddleware(MiddlewareInterface $middleware)
+    public function addMiddleware(MiddlewareInterface $middleware): void
     {
         $this->middlewares[] = $middleware;
     }
@@ -68,7 +76,7 @@ class RampageRequestHandler implements RequestHandlerInterface
     /**
      * Configure the payload handler
      */
-    public function setPayloadHandler(RequestHandlerInterface $handler)
+    public function setPayloadHandler(RequestHandlerInterface $handler): void
     {
         $this->payloadHandler = $handler;
     }
@@ -89,7 +97,7 @@ class RampageRequestHandler implements RequestHandlerInterface
      *
      * Finally the we will return a response ourselves.
      */
-    public function handle(RequestInterface $request): ResponseInterface
+    public function handle(ServerRequestInterface $request): ResponseInterface
     {
         $middleware = $this->nextMiddleware();
         if ($middleware) {
