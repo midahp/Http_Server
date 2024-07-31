@@ -1,8 +1,10 @@
 <?php
+
 declare(strict_types=1);
+
 namespace Horde\Http\Server;
+
 use Psr\Http\Message\ServerRequestInterface;
-use Psr\Http\Message\ServerRequestFactoryInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
 /**
@@ -25,6 +27,8 @@ class Runner
     public function run(ServerRequestInterface $request): void
     {
         $response = $this->handler->handle($request);
+        // make sure no additional output is buffered at this point
+        ob_end_clean();
         $this->responseWriter->writeResponse($response);
     }
 }
